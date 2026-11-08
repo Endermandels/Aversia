@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7d74rotkqden" path="res://scenes/player.tscn" id="1_krot7"]
 [ext_resource type="Texture2D" uid="uid://brhiw0m7wk0b7" path="res://assets/visuals/Forest Tileset Trees.png" id="2_u4wd2"]
-[ext_resource type="PackedScene" uid="uid://bt5iq6b35f2io" path="res://scenes/creature.tscn" id="3_w18ys"]
+[ext_resource type="PackedScene" uid="uid://bt5iq6b35f2io" path="res://scenes/squirrel.tscn" id="3_w18ys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w18ys"]
 texture = ExtResource("2_u4wd2")
@@ -52,5 +52,21 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAFAAIAAAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAAFAP//AAACAAAAAAAFAP7/AAACAAAAAAAFAP3/AAACAAAAAAAFAPz/AAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAAAAP3/AAACAAAAAAAAAPz/AAACAAAAAAAAAPv/AAACAAAAAAAAAPr/AAACAAAAAAAAAPn/AAACAAAAAAAAAPj/AAACAAAAAAAAAPf/AAACAAAAAAAFAPv/AAACAAAAAAAFAPr/AAACAAAAAAAFAPn/AAACAAAAAAAFAPj/AAACAAAAAAAFAPf/AAACAAAAAAAFAPb/AAACAAAAAAAFAPX/AAACAAAAAAAAAPb/AAACAAAAAAAAAPX/AAACAAAAAAAAAPT/AAACAAAAAAABAPT/AAACAAAAAAACAPT/AAACAAAAAAADAPT/AAACAAAAAAAEAPT/AAACAAAAAAAFAPT/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_neivv")
 
-[node name="Creature" parent="Y-Sorted" unique_id=625790673 instance=ExtResource("3_w18ys")]
+[node name="Squirrel" parent="Y-Sorted" unique_id=625790673 instance=ExtResource("3_w18ys")]
 position = Vector2(271, 47)
+
+[node name="CreatureAI" parent="Y-Sorted/Squirrel" index="4" unique_id=1629726825 node_paths=PackedStringArray("waypoints")]
+waypoints = NodePath("../../../SquirrelWaypoints")
+
+[node name="SquirrelWaypoints" type="Node" parent="." unique_id=1084533322]
+
+[node name="Node2D" type="Node2D" parent="SquirrelWaypoints" unique_id=147463586]
+position = Vector2(128, 83)
+
+[node name="Node2D2" type="Node2D" parent="SquirrelWaypoints" unique_id=358688703]
+position = Vector2(212, 2)
+
+[node name="Node2D3" type="Node2D" parent="SquirrelWaypoints" unique_id=2102605857]
+position = Vector2(288, 114)
+
+[editable path="Y-Sorted/Squirrel"]

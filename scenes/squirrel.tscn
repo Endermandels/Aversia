@@ -68,7 +68,7 @@ _data = {
 radius = 2.0
 height = 10.0
 
-[node name="Creature" type="CharacterBody2D" unique_id=625790673 node_paths=PackedStringArray("movement_cmp", "animation_cmp", "creature_ai")]
+[node name="Squirrel" type="CharacterBody2D" unique_id=625790673 node_paths=PackedStringArray("movement_cmp", "animation_cmp", "creature_ai")]
 collision_layer = 0
 script = ExtResource("1_rl551")
 movement_cmp = NodePath("MovementComponent")
@@ -98,6 +98,7 @@ position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3c2ov")
 
-[node name="CreatureAI" type="Node" parent="." unique_id=1629726825]
+[node name="CreatureAI" type="Node" parent="." unique_id=1629726825 node_paths=PackedStringArray("body")]
 script = ExtResource("5_2b8l4")
+body = NodePath("..")
 metadata/_custom_type_script = "uid://m0x146tkwudy"

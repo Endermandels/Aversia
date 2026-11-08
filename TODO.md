@@ -1,2 +1,2 @@
 # OPEN
-[] Add waypoints for creatures
+[x] Add waypoints for creatures
