@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ctbvyvnyagtc2"]
+
+[ext_resource type="Script" uid="uid://b7xgpbv1lny5a" path="res://components/console.gd" id="1_k8p3b"]
+
+[node name="Console" type="CanvasLayer" unique_id=559943349 node_paths=PackedStringArray("scroll_box", "chat_box", "line_edit")]
+script = ExtResource("1_k8p3b")
+default_text_color = Color(0.79, 0.79, 0.79, 1)
+hide_on_ready = false
+allow_non_commands = false
+scroll_box = NodePath("PanelContainer/VBoxContainer/ScrollContainer")
+chat_box = NodePath("PanelContainer/VBoxContainer/ScrollContainer/ChatBox")
+line_edit = NodePath("PanelContainer/VBoxContainer/LineEdit")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=999045590]
+modulate = Color(1, 1, 1, 0.7137255)
+offset_left = 4.0
+offset_top = 161.0
+offset_right = 184.0
+offset_bottom = 236.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=278447800]
+layout_mode = 2
+alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=1299593989]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ChatBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=311508937]
+layout_mode = 2
+alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer" unique_id=1014510456]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+keep_editing_on_text_submit = true

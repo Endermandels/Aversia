@@ -1,8 +1,51 @@
-[gd_scene format=3 uid="uid://thr1xp43ip5m"]
+[gd_scene format=4 uid="uid://thr1xp43ip5m"]
 
 [ext_resource type="PackedScene" uid="uid://b7d74rotkqden" path="res://scenes/player.tscn" id="1_krot7"]
+[ext_resource type="Texture2D" uid="uid://brhiw0m7wk0b7" path="res://assets/visuals/Forest Tileset Trees.png" id="2_u4wd2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w18ys"]
+texture = ExtResource("2_u4wd2")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_neivv"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_w18ys")
 
 [node name="Home" type="Node2D" unique_id=222732394]
 
-[node name="Player" parent="." unique_id=378793080 instance=ExtResource("1_krot7")]
+[node name="Y-Sorted" type="Node2D" parent="." unique_id=58607452]
+y_sort_enabled = true
+
+[node name="Player" parent="Y-Sorted" unique_id=378793080 instance=ExtResource("1_krot7")]
 position = Vector2(183, 131)
+
+[node name="Trees" type="TileMapLayer" parent="Y-Sorted" unique_id=144706655]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAFAAIAAAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAAFAP//AAACAAAAAAAFAP7/AAACAAAAAAAFAP3/AAACAAAAAAAFAPz/AAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAAAAP3/AAACAAAAAAAAAPz/AAACAAAAAAAAAPv/AAACAAAAAAAAAPr/AAACAAAAAAAAAPn/AAACAAAAAAAAAPj/AAACAAAAAAAAAPf/AAACAAAAAAAFAPv/AAACAAAAAAAFAPr/AAACAAAAAAAFAPn/AAACAAAAAAAFAPj/AAACAAAAAAAFAPf/AAACAAAAAAAFAPb/AAACAAAAAAAFAPX/AAACAAAAAAAAAPb/AAACAAAAAAAAAPX/AAACAAAAAAAAAPT/AAACAAAAAAABAPT/AAACAAAAAAACAPT/AAACAAAAAAADAPT/AAACAAAAAAAEAPT/AAACAAAAAAAFAPT/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_neivv")

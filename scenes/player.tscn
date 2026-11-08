@@ -63,6 +63,10 @@ _data = {
 &"run": SubResource("Animation_smehm")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugjuj"]
+radius = 2.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D" unique_id=378793080 node_paths=PackedStringArray("input_cmp", "movement_cmp", "animation_cmp")]
 script = ExtResource("1_dqkch")
 input_cmp = NodePath("InputComponent")
@@ -90,3 +94,14 @@ autoplay = &"idle"
 script = ExtResource("5_qlg0r")
 sprite = NodePath("../Sprite2D")
 metadata/_custom_type_script = "uid://bam0t1cu515kb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679429943]
+position = Vector2(0, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ugjuj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=411963879]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
