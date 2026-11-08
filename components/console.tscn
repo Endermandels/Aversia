@@ -5,7 +5,6 @@
 [node name="Console" type="CanvasLayer" unique_id=559943349 node_paths=PackedStringArray("scroll_box", "chat_box", "line_edit")]
 script = ExtResource("1_k8p3b")
 default_text_color = Color(0.79, 0.79, 0.79, 1)
-hide_on_ready = false
 allow_non_commands = false
 scroll_box = NodePath("PanelContainer/VBoxContainer/ScrollContainer")
 chat_box = NodePath("PanelContainer/VBoxContainer/ScrollContainer/ChatBox")

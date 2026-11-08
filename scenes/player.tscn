@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://bam0t1cu515kb" path="res://components/animation_component.gd" id="5_qlg0r"]
 
-[sub_resource type="Animation" id="Animation_tuyoq"]
+[sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21,10 +21,10 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_fjrip"]
+[sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "idle"
 loop_mode = 1
-step = 0.083333336
+step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_smehm"]
+[sub_resource type="Animation" id="Animation_fjrip"]
 resource_name = "run"
 length = 0.6666750198684632
 loop_mode = 1
@@ -50,24 +50,25 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334),
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5, 0.5833333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [9, 10, 11, 12, 13, 14, 15, 8]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smehm"]
 _data = {
-&"RESET": SubResource("Animation_tuyoq"),
-&"idle": SubResource("Animation_fjrip"),
-&"run": SubResource("Animation_smehm")
+&"RESET": SubResource("Animation_qlg0r"),
+&"idle": SubResource("Animation_tuyoq"),
+&"run": SubResource("Animation_fjrip")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugjuj"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_neivv"]
 radius = 2.0
-height = 16.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D" unique_id=378793080 node_paths=PackedStringArray("input_cmp", "movement_cmp", "animation_cmp")]
+collision_layer = 0
 script = ExtResource("1_dqkch")
 input_cmp = NodePath("InputComponent")
 movement_cmp = NodePath("MovementComponent")
@@ -84,24 +85,24 @@ script = ExtResource("2_qhqgy")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://cvvijjv0cffej"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1872982149]
-script = ExtResource("3_dqkch")
-metadata/_custom_type_script = "uid://nq7xqsfj83rt"
-
-[node name="AnimationComponent" type="AnimationPlayer" parent="." unique_id=1303927703 node_paths=PackedStringArray("sprite")]
-libraries/ = SubResource("AnimationLibrary_ur7pv")
-autoplay = &"idle"
-script = ExtResource("5_qlg0r")
-sprite = NodePath("../Sprite2D")
-metadata/_custom_type_script = "uid://bam0t1cu515kb"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679429943]
-position = Vector2(0, -1)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ugjuj")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=411963879]
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="AnimationComponent" type="AnimationPlayer" parent="." unique_id=256400565 node_paths=PackedStringArray("sprite")]
+libraries/ = SubResource("AnimationLibrary_smehm")
+autoplay = &"idle"
+script = ExtResource("5_qlg0r")
+sprite = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://bam0t1cu515kb"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1291226116]
+script = ExtResource("3_dqkch")
+max_speed = 100.0
+metadata/_custom_type_script = "uid://nq7xqsfj83rt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=700120394]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_neivv")

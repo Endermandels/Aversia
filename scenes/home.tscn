@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7d74rotkqden" path="res://scenes/player.tscn" id="1_krot7"]
 [ext_resource type="Texture2D" uid="uid://brhiw0m7wk0b7" path="res://assets/visuals/Forest Tileset Trees.png" id="2_u4wd2"]
+[ext_resource type="PackedScene" uid="uid://bt5iq6b35f2io" path="res://scenes/creature.tscn" id="3_w18ys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w18ys"]
 texture = ExtResource("2_u4wd2")
@@ -34,6 +35,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_neivv"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_w18ys")
 
 [node name="Home" type="Node2D" unique_id=222732394]
@@ -49,3 +51,6 @@ y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAACAAMAAAACAAAAAAADAAMAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAFAAIAAAACAAAAAAAFAAEAAAACAAAAAAAFAAAAAAACAAAAAAAFAP//AAACAAAAAAAFAP7/AAACAAAAAAAFAP3/AAACAAAAAAAFAPz/AAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAAAAP7/AAACAAAAAAAAAP3/AAACAAAAAAAAAPz/AAACAAAAAAAAAPv/AAACAAAAAAAAAPr/AAACAAAAAAAAAPn/AAACAAAAAAAAAPj/AAACAAAAAAAAAPf/AAACAAAAAAAFAPv/AAACAAAAAAAFAPr/AAACAAAAAAAFAPn/AAACAAAAAAAFAPj/AAACAAAAAAAFAPf/AAACAAAAAAAFAPb/AAACAAAAAAAFAPX/AAACAAAAAAAAAPb/AAACAAAAAAAAAPX/AAACAAAAAAAAAPT/AAACAAAAAAABAPT/AAACAAAAAAACAPT/AAACAAAAAAADAPT/AAACAAAAAAAEAPT/AAACAAAAAAAFAPT/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_neivv")
+
+[node name="Creature" parent="Y-Sorted" unique_id=625790673 instance=ExtResource("3_w18ys")]
+position = Vector2(271, 47)
