@@ -54,6 +54,7 @@ script = ExtResource("1_jnvml")
 movement_cmp = NodePath("MovementComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248495448]
+modulate = Color(5.2297173, 5.2297173, 0, 1)
 texture = ExtResource("1_46601")
 hframes = 4
 
@@ -62,10 +63,13 @@ libraries/ = SubResource("AnimationLibrary_8thdp")
 autoplay = &"traveling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1789246352]
+visible = false
 position = Vector2(-1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ugjuj")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1188834301]
 script = ExtResource("3_eutib")
+acceleration = 1.0
+max_speed = 400.0
 metadata/_custom_type_script = "uid://nq7xqsfj83rt"
