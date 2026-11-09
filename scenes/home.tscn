@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://thr1xp43ip5m"]
 
 [ext_resource type="PackedScene" uid="uid://b7d74rotkqden" path="res://scenes/player.tscn" id="1_krot7"]
-[ext_resource type="Texture2D" uid="uid://brhiw0m7wk0b7" path="res://assets/visuals/Forest Tileset Trees.png" id="2_u4wd2"]
+[ext_resource type="Texture2D" uid="uid://brhiw0m7wk0b7" path="res://assets/visuals/tilesets/Forest Tileset Trees.png" id="2_u4wd2"]
 [ext_resource type="PackedScene" uid="uid://bt5iq6b35f2io" path="res://scenes/squirrel.tscn" id="3_w18ys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w18ys"]
@@ -43,8 +43,9 @@ sources/0 = SubResource("TileSetAtlasSource_w18ys")
 [node name="Y-Sorted" type="Node2D" parent="." unique_id=58607452]
 y_sort_enabled = true
 
-[node name="Player" parent="Y-Sorted" unique_id=378793080 instance=ExtResource("1_krot7")]
+[node name="Player" parent="Y-Sorted" unique_id=378793080 node_paths=PackedStringArray("projectile_spawn") instance=ExtResource("1_krot7")]
 position = Vector2(183, 131)
+projectile_spawn = NodePath("../../Projectiles")
 
 [node name="Trees" type="TileMapLayer" parent="Y-Sorted" unique_id=144706655]
 y_sort_enabled = true
@@ -58,6 +59,18 @@ position = Vector2(271, 47)
 [node name="CreatureAI" parent="Y-Sorted/Squirrel" index="4" unique_id=1629726825 node_paths=PackedStringArray("waypoints")]
 waypoints = NodePath("../../../SquirrelWaypoints")
 
+[node name="Squirrel2" parent="Y-Sorted" unique_id=2057895824 instance=ExtResource("3_w18ys")]
+position = Vector2(207, 36)
+
+[node name="CreatureAI" parent="Y-Sorted/Squirrel2" index="4" unique_id=1629726825 node_paths=PackedStringArray("waypoints")]
+waypoints = NodePath("../../../SquirrelWaypoints")
+
+[node name="Squirrel3" parent="Y-Sorted" unique_id=2079391100 instance=ExtResource("3_w18ys")]
+position = Vector2(212, 95)
+
+[node name="CreatureAI" parent="Y-Sorted/Squirrel3" index="4" unique_id=1629726825 node_paths=PackedStringArray("waypoints")]
+waypoints = NodePath("../../../SquirrelWaypoints")
+
 [node name="SquirrelWaypoints" type="Node" parent="." unique_id=1084533322]
 
 [node name="Node2D" type="Node2D" parent="SquirrelWaypoints" unique_id=147463586]
@@ -69,4 +82,8 @@ position = Vector2(212, 2)
 [node name="Node2D3" type="Node2D" parent="SquirrelWaypoints" unique_id=2102605857]
 position = Vector2(288, 114)
 
+[node name="Projectiles" type="Node" parent="." unique_id=1357646755]
+
 [editable path="Y-Sorted/Squirrel"]
+[editable path="Y-Sorted/Squirrel2"]
+[editable path="Y-Sorted/Squirrel3"]

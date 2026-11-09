@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b7d74rotkqden"]
 
-[ext_resource type="Texture2D" uid="uid://x10170bdr8a3" path="res://assets/visuals/Skunk Sprite Sheet.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://x10170bdr8a3" path="res://assets/visuals/characters/Skunk Sprite Sheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://tnnqwy2r7t1b" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://cvvijjv0cffej" path="res://components/input_component.gd" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bnt1spqhxyvkn" path="res://scenes/spray.tscn" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://bam0t1cu515kb" path="res://components/animation_component.gd" id="5_qlg0r"]
 
@@ -73,6 +74,7 @@ script = ExtResource("1_dqkch")
 input_cmp = NodePath("InputComponent")
 movement_cmp = NodePath("MovementComponent")
 animation_cmp = NodePath("AnimationComponent")
+spray = ExtResource("2_tuyoq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296239694]
 position = Vector2(0, -16)

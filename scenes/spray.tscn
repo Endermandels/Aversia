@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bnt1spqhxyvkn"]
+
+[ext_resource type="Texture2D" uid="uid://babgj5qd1q5x1" path="res://assets/visuals/fx/proj_water_small_sheet.png" id="1_46601"]
+[ext_resource type="Script" uid="uid://ch2rxi356i6py" path="res://scripts/spray.gd" id="1_jnvml"]
+[ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_eutib"]
+
+[sub_resource type="Animation" id="Animation_jnvml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eutib"]
+resource_name = "traveling"
+length = 0.3333416766010225
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8thdp"]
+_data = {
+&"RESET": SubResource("Animation_jnvml"),
+&"traveling": SubResource("Animation_eutib")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugjuj"]
+radius = 6.0
+height = 26.0
+
+[node name="Spray" type="CharacterBody2D" unique_id=1350552429 node_paths=PackedStringArray("movement_cmp")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_jnvml")
+movement_cmp = NodePath("MovementComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248495448]
+texture = ExtResource("1_46601")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=724153700]
+libraries/ = SubResource("AnimationLibrary_8thdp")
+autoplay = &"traveling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1789246352]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ugjuj")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1188834301]
+script = ExtResource("3_eutib")
+metadata/_custom_type_script = "uid://nq7xqsfj83rt"

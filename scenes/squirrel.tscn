@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bt5iq6b35f2io"]
 
-[ext_resource type="Texture2D" uid="uid://daarhrra6p6bd" path="res://assets/visuals/Squirrel Sprite Sheet.png" id="1_7obff"]
+[ext_resource type="Texture2D" uid="uid://daarhrra6p6bd" path="res://assets/visuals/characters/Squirrel Sprite Sheet.png" id="1_7obff"]
 [ext_resource type="Script" uid="uid://2udncpibsy6i" path="res://scripts/creature.gd" id="1_rl551"]
 [ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="2_rl551"]
 [ext_resource type="Script" uid="uid://bam0t1cu515kb" path="res://components/animation_component.gd" id="3_2b8l4"]
