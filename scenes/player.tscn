@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://x10170bdr8a3" path="res://assets/visuals/characters/Skunk Sprite Sheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://tnnqwy2r7t1b" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://cvvijjv0cffej" path="res://components/input_component.gd" id="2_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://bnt1spqhxyvkn" path="res://scenes/spray.tscn" id="2_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bnt1spqhxyvkn" path="res://scenes/spray_foul.tscn" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://bam0t1cu515kb" path="res://components/animation_component.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://2tsfiwdspwse" path="res://components/gun_component.gd" id="7_fjrip"]
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
@@ -68,13 +69,13 @@ _data = {
 radius = 2.0
 height = 12.0
 
-[node name="Player" type="CharacterBody2D" unique_id=378793080 node_paths=PackedStringArray("input_cmp", "movement_cmp", "animation_cmp")]
+[node name="Player" type="CharacterBody2D" unique_id=378793080 node_paths=PackedStringArray("input_cmp", "movement_cmp", "animation_cmp", "gun_cmp")]
 collision_layer = 0
 script = ExtResource("1_dqkch")
 input_cmp = NodePath("InputComponent")
 movement_cmp = NodePath("MovementComponent")
 animation_cmp = NodePath("AnimationComponent")
-spray = ExtResource("2_tuyoq")
+gun_cmp = NodePath("GunComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296239694]
 position = Vector2(0, -16)
@@ -108,3 +109,10 @@ metadata/_custom_type_script = "uid://nq7xqsfj83rt"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=700120394]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_neivv")
+
+[node name="GunComponent" type="Node2D" parent="." unique_id=1118408419]
+position = Vector2(0, -5)
+script = ExtResource("7_fjrip")
+cooldown_time = 3.0
+projectile = ExtResource("2_tuyoq")
+metadata/_custom_type_script = "uid://2tsfiwdspwse"

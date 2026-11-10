@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bnt1spqhxyvkn"]
 
-[ext_resource type="Texture2D" uid="uid://babgj5qd1q5x1" path="res://assets/visuals/fx/proj_water_small_sheet.png" id="1_46601"]
-[ext_resource type="Script" uid="uid://ch2rxi356i6py" path="res://scripts/spray.gd" id="1_jnvml"]
-[ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_eutib"]
+[ext_resource type="Script" uid="uid://dmy5e5kpo6tkf" path="res://components/projectile_component.gd" id="1_alpsj"]
+[ext_resource type="Texture2D" uid="uid://babgj5qd1q5x1" path="res://assets/visuals/fx/proj_water_small_sheet.png" id="2_6eduo"]
+[ext_resource type="Script" uid="uid://nq7xqsfj83rt" path="res://components/movement_component.gd" id="3_sq22m"]
 
 [sub_resource type="Animation" id="Animation_jnvml"]
 length = 0.001
@@ -44,18 +44,19 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugjuj"]
-radius = 6.0
-height = 26.0
+radius = 3.0
+height = 14.0
 
-[node name="Spray" type="CharacterBody2D" unique_id=1350552429 node_paths=PackedStringArray("movement_cmp")]
+[node name="SprayFoul" type="CharacterBody2D" unique_id=1350552429 node_paths=PackedStringArray("movement_cmp")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_jnvml")
+script = ExtResource("1_alpsj")
 movement_cmp = NodePath("MovementComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248495448]
 modulate = Color(5.2297173, 5.2297173, 0, 1)
-texture = ExtResource("1_46601")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6eduo")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=724153700]
@@ -63,13 +64,12 @@ libraries/ = SubResource("AnimationLibrary_8thdp")
 autoplay = &"traveling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1789246352]
-visible = false
 position = Vector2(-1, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ugjuj")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1188834301]
-script = ExtResource("3_eutib")
+script = ExtResource("3_sq22m")
 acceleration = 1.0
 max_speed = 400.0
 metadata/_custom_type_script = "uid://nq7xqsfj83rt"
