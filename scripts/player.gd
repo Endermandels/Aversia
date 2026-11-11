@@ -14,10 +14,14 @@ func _process(_delta: float) -> void:
 	animation_cmp.handle_facing_direction(self)
 
 func _physics_process(_delta: float) -> void:
-	movement_cmp.handle_movement(self, Vector2.ZERO if Console.visible else input_cmp.input_vector)
+	movement_cmp.handle_movement(self, input_cmp.input_vector)
+	
 	if not Console.visible:
 		if input_cmp.spray:
-			gun_cmp.shoot(input_cmp.spray_vector, projectile_spawn)
-			input_cmp.spray = false
+			animation_cmp.spray()
+			if input_cmp.spray_vector != Vector2.ZERO:
+				gun_cmp.shoot(input_cmp.spray_vector, projectile_spawn)
+				input_cmp.spray = false
+				input_cmp.spray_vector = Vector2.ZERO
 
 	move_and_slide()
