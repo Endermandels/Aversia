@@ -113,6 +113,6 @@ shape = SubResource("CapsuleShape2D_neivv")
 [node name="GunComponent" type="Node2D" parent="." unique_id=1118408419]
 position = Vector2(0, -5)
 script = ExtResource("7_fjrip")
-cooldown_time = 3.0
+cooldown_time = 0.2
 projectile = ExtResource("2_tuyoq")
 metadata/_custom_type_script = "uid://2tsfiwdspwse"
